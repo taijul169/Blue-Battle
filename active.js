@@ -9,8 +9,94 @@ $(document).ready(function () {
     $(".mega-menu").slideUp(500);
     });
    
-     // Recently-owl-slider-active------
-     $('.hero-content-info-wrapper').owlCarousel({
+     // testimonial-owl-slider-active------
+     $('.testimonial-wrapper').owlCarousel({
+        loop:true,
+        margin:0,
+        responsiveClass: true,
+        responsive:{
+            0:{
+                items:1,
+                nav: true,
+                dots:false
+            },
+            600:{
+                items:1,
+                nav: false,
+                dots:false,
+                autoplay:true
+            },
+            1000:{
+                items:2,
+                nav:true,
+                loop: true,
+                dots:false,
+                autoplay:true
+
+            },
+            1400:{
+                items:3,
+                nav:true,
+                loop: true,
+                dots:false,
+                autoplay:true
+            }
+        }
+    });
+         // Hero-owl-slider-active------
+     $('.brand-logo-wrapper').owlCarousel({
+        loop:true,
+        margin:0,
+        responsiveClass: true,
+        responsive:{
+            0:{
+                items:2,
+                nav: true,
+                dots:false
+            },
+            600:{
+                items:4,
+                nav: false,
+                dots:false,
+                autoplay:true
+            },
+            1000:{
+                items:6,
+                nav:true,
+                loop: true,
+                dots:false,
+                autoplay:true
+
+            },
+            1400:{
+                items:8,
+                nav:true,
+                loop: true,
+                dots:false,
+                autoplay:true
+            }
+        }
+    });
+    var heroSlider = $('.hero-content-info-wrapper');
+
+    // owl-carousel-caption-animation------------------
+     heroSlider.on('changed.owl.carousel', function (event) {
+        var item = event.item.index - 2;
+        $('.hero-content-text h5,h1').removeClass('animate__animated animate__fadeInDown');
+        $('.owl-item').not('.cloned').eq(item).find('.hero-content-text h5,h1').addClass('animate__animated animate__fadeInDown');
+        $('.common-button-two').removeClass('animate__animated animate__fadeInDown');
+        $('.owl-item').not('.cloned').eq(item).find('.common-button-two').addClass('animate__animated animate__fadeInDown');
+         $('.hero-content-right').removeClass('animate__animated animate__flipInY');
+        $('.owl-item').not('.cloned').eq(item).find('.hero-content-right').addClass('animate__animated animate__flipInY');
+    });
+    // counter-activatioin--------------
+    $('.counter').counterUp({
+        delay: 10,
+        time: 1000,
+        triggerOnce:true
+    });
+    // client testimonial-active------
+    $('.hero-content-info-wrapper').owlCarousel({
         loop:true,
         margin:0,
         responsiveClass: true,
@@ -42,24 +128,6 @@ $(document).ready(function () {
                 autoplay:true
             }
         }
-    });
-    var heroSlider = $('.hero-content-info-wrapper');
-
-    // owl-carousel-caption-animation------------------
-     heroSlider.on('changed.owl.carousel', function (event) {
-        var item = event.item.index - 2;
-        $('.hero-content-text h5,h1').removeClass('animate__animated animate__fadeInDown');
-        $('.owl-item').not('.cloned').eq(item).find('.hero-content-text h5,h1').addClass('animate__animated animate__fadeInDown');
-        $('.common-button-two').removeClass('animate__animated animate__fadeInDown');
-        $('.owl-item').not('.cloned').eq(item).find('.common-button-two').addClass('animate__animated animate__fadeInDown');
-         $('.hero-content-right').removeClass('animate__animated animate__flipInY');
-        $('.owl-item').not('.cloned').eq(item).find('.hero-content-right').addClass('animate__animated animate__flipInY');
-    });
-    // counter-activatioin--------------
-    $('.counter').counterUp({
-        delay: 10,
-        time: 1000,
-        triggerOnce:true
     });
 
     // skill-progressbar----------------------
